@@ -10,7 +10,6 @@ button.appendChild(buttonContent);
 document.body.appendChild(button);
         
 
-
 button.addEventListener("click", button => {
     document.getElementById("timerButton").remove();
 
