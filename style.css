@@ -1,14 +1,9 @@
 :root{
-    --text-primary:#b6b6b6;
-    --text-secondary:#ececec;
     --bg-primary:#282625;
     --bg-secondary:#9b958e;
     --btn-primary:#22a6f0;
     --btn-secondary:#89d6f0;
-    --backdrop-first:#fff;
-    --backdrop-second:#fff;
-    --backdrop-third:#fff;
-    --backdrop-forth:#fff;
+
 }
 
 body{
@@ -32,7 +27,7 @@ body{
     border-radius: 1rem;
     border:none;
     cursor: pointer;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 #flashCard1{

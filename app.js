@@ -1,5 +1,7 @@
 var appStart = false;
-
+var random = Math.floor(Math.random() * 10)+1; //generates random number
+//Math.floor -> returns an integer, not a floating number
+console.log(random);
 
 var button = document.createElement("button");
 button.setAttribute("id", "timerButton");
@@ -15,7 +17,6 @@ button.addEventListener("click", button => {
     setTimeout(createDiv, 1000);
 
     function createDiv(){
-        
         var flashCard = document.createElement("div");
         flashCard.setAttribute("id", "flashCard1");
         var flashCardText = document.createTextNode("Jab");
@@ -29,4 +30,7 @@ button.addEventListener("click", button => {
     function renewDiv(){
         flashCard1.remove();
     }
+
+    setTimeout(createDiv, 7000);
+
 })
