@@ -1,5 +1,5 @@
 var appStart = false;
-var random = Math.floor(Math.random() * 10)+1; //generates random number
+var random = Math.floor(Math.random() * 4)+1; //generates random number
 //Math.floor -> returns an integer, not a floating number
 console.log(random);
 
@@ -20,7 +20,30 @@ button.addEventListener("click", button => {
         flashCard.setAttribute("id", "flashCard1");
         var flashCardText = document.createTextNode("Jab");
         flashCard.appendChild(flashCardText);
-        //document.getElementById('flashCard1').style.backgroundColor = "#e2e2e2";
+        document.body.appendChild(flashCard);
+    }
+
+    function createDiv2(){
+        var flashCard = document.createElement("div");
+        flashCard.setAttribute("id", "flashCard1");
+        var flashCardText = document.createTextNode("Cross");
+        flashCard.appendChild(flashCardText);
+        document.body.appendChild(flashCard);
+    }
+
+    function createDiv3(){
+        var flashCard = document.createElement("div");
+        flashCard.setAttribute("id", "flashCard1");
+        var flashCardText = document.createTextNode("Hook");
+        flashCard.appendChild(flashCardText);
+        document.body.appendChild(flashCard);
+    }
+
+    function createDiv4(){
+        var flashCard = document.createElement("div");
+        flashCard.setAttribute("id", "flashCard1");
+        var flashCardText = document.createTextNode("UpperCut");
+        flashCard.appendChild(flashCardText);
         document.body.appendChild(flashCard);
     }
 
@@ -30,6 +53,6 @@ button.addEventListener("click", button => {
         flashCard1.remove();
     }
 
-    setTimeout(createDiv, 7000);
+    setTimeout(createDiv2, 7000);
 
 })
