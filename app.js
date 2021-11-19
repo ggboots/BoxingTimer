@@ -1,7 +1,7 @@
 var appStart = false;
-var random = Math.floor(Math.random() * 4)+1; //generates random number
+ //generates random number
 //Math.floor -> returns an integer, not a floating number
-console.log(random);
+
 
 var button = document.createElement("button");
 button.setAttribute("id", "timerButton");
@@ -13,9 +13,9 @@ document.body.appendChild(button);
 button.addEventListener("click", button => {
     document.getElementById("timerButton").remove();
 
-    setTimeout(createDiv, 1000);
+    setTimeout(createJab, 1000);
 
-    function createDiv(){
+    function createJab(){
         var flashCard = document.createElement("div");
         flashCard.setAttribute("id", "flashCard1");
         var flashCardText = document.createTextNode("Jab");
@@ -23,7 +23,7 @@ button.addEventListener("click", button => {
         document.body.appendChild(flashCard);
     }
 
-    function createDiv2(){
+    function createCross(){
         var flashCard = document.createElement("div");
         flashCard.setAttribute("id", "flashCard1");
         var flashCardText = document.createTextNode("Cross");
@@ -31,7 +31,7 @@ button.addEventListener("click", button => {
         document.body.appendChild(flashCard);
     }
 
-    function createDiv3(){
+    function createHook(){
         var flashCard = document.createElement("div");
         flashCard.setAttribute("id", "flashCard1");
         var flashCardText = document.createTextNode("Hook");
@@ -39,20 +39,47 @@ button.addEventListener("click", button => {
         document.body.appendChild(flashCard);
     }
 
-    function createDiv4(){
+    function createUpperCut(){
         var flashCard = document.createElement("div");
         flashCard.setAttribute("id", "flashCard1");
         var flashCardText = document.createTextNode("UpperCut");
         flashCard.appendChild(flashCardText);
         document.body.appendChild(flashCard);
     }
-
-    setTimeout(renewDiv, 4000);
-
     function renewDiv(){
         flashCard1.remove();
     }
 
-    setTimeout(createDiv2, 7000);
+    function randomFunc(){
+        var random = Math.floor(Math.random() * 4)+1;
+        switch(random){
+            case "1":
+                console.log("Jab");
+                break;
+            case "2":
+                console.log("Cross");
+                break;
+            case "3":
+                console.log("Hook");
+                break;
+            case "4":
+                console.log("upperCut");
+                break;
+        }
+    }
+
+    
+    setTimeout(renewDiv, 4000);
+
+    setTimeout(createCross, 6000);
+    setTimeout(renewDiv, 8000);
+    setTimeout(createHook, 10000);
+    setTimeout(renewDiv, 12000);
+    setTimeout(createUpperCut, 14000);
+    setTimeout(renewDiv, 16000);
+
+    randomFunc();
+
+
 
 })
