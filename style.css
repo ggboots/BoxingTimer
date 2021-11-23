@@ -3,7 +3,6 @@
     --bg-secondary:#9b958e;
     --btn-primary:#22a6f0;
     --btn-secondary:#89d6f0;
-
 }
 
 body{
@@ -15,7 +14,7 @@ body{
     width:100vw;
 }
 
-#timerButton{
+#playButton{
     position:fixed;
     top:50%;
     left:50%;
@@ -38,7 +37,11 @@ body{
     height:94%;
     width:80%;
     background-color: #fff;
+    border-radius: 1rem;
     transition: 1000s;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 
 

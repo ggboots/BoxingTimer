@@ -2,18 +2,19 @@ var appStart = false;
  //generates random number
 //Math.floor -> returns an integer, not a floating number
 
-
 var button = document.createElement("button");
-button.setAttribute("id", "timerButton");
+button.setAttribute("id", "playButton");
 var buttonContent = document.createTextNode("Reveal Strike");
 button.appendChild(buttonContent);
 document.body.appendChild(button);
+
+var timer = document.createElement("div");
+timer.setAttribute("id", "timeSelection");
+document.body.appendChild(timer);
         
-
 button.addEventListener("click", button => {
-    document.getElementById("timerButton").remove();
-
-    setTimeout(createJab, 1000);
+    document.getElementById("playButton").remove();
+    document.getElementById("timeSelection").remove();
 
     function createJab(){
         var flashCard = document.createElement("div");
@@ -47,39 +48,48 @@ button.addEventListener("click", button => {
         document.body.appendChild(flashCard);
     }
     function renewDiv(){
-        flashCard1.remove();
+            flashCard.remove();
     }
 
     function randomFunc(){
         var random = Math.floor(Math.random() * 4)+1;
         switch(random){
-            case "1":
-                console.log("Jab");
+            case 1:
+                createJab();
                 break;
-            case "2":
-                console.log("Cross");
+            case 2:
+                createCross();
                 break;
-            case "3":
-                console.log("Hook");
+            case 3:
+                createHook();
                 break;
-            case "4":
-                console.log("upperCut");
+            case 4:
+                createUpperCut();
                 break;
         }
     }
 
+    function timer{
+        
+    }
+
+    setInterval(randomFunc, 1500); //1.5 seconds till next move
+
+
+    const minute = 1000*60;
+    const time = new Date();
+    let output = Math.round(time.getTime() / minute);
+
+    // Date.Now()
+    console.log(output);
+
     
-    setTimeout(renewDiv, 4000);
-
-    setTimeout(createCross, 6000);
-    setTimeout(renewDiv, 8000);
-    setTimeout(createHook, 10000);
-    setTimeout(renewDiv, 12000);
-    setTimeout(createUpperCut, 14000);
-    setTimeout(renewDiv, 16000);
-
-    randomFunc();
-
-
-
 })
+
+
+var fightingStyles = {
+    1 : "Jab",
+    2 : "Hook",
+    3 : "UpperCut",
+    4 : "Cross"
+};
