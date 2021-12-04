@@ -69,9 +69,9 @@ button.addEventListener("click", button => {
         }
     }
 
-    function timer{
-        
-    }
+    // function timer(){
+    //     const 
+    // }
 
     setInterval(randomFunc, 1500); //1.5 seconds till next move
 
