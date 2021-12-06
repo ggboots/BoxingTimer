@@ -1,25 +1,33 @@
 var appStart = false;
  //generates random number
 //Math.floor -> returns an integer, not a floating number
+// var main = document.getElementById("main");
 
-var button = document.createElement("button");
-button.setAttribute("id", "playButton");
-var buttonContent = document.createTextNode("Reveal Strike");
-button.appendChild(buttonContent);
-document.body.appendChild(button);
+setTimeout(start, 1500);
 
-var timer = document.createElement("div");
-timer.setAttribute("id", "timeSelection");
-document.body.appendChild(timer);
-        
-button.addEventListener("click", button => {
+function start(){
+    var button = document.createElement("button");
+    button.setAttribute("id", "playButton");
+    var buttonContent = document.createTextNode("Reveal Strike");
+    button.appendChild(buttonContent);
+    document.getElementById("main").appendChild(button);
+
+    var timer = document.createElement("div");
+    timer.setAttribute("id", "timeSelection");
+    document.getElementById("main").appendChild(timer);
+  
+
+
+    button.addEventListener("click", button => {
     document.getElementById("playButton").remove();
     document.getElementById("timeSelection").remove();
 
     function createJab(){
         var flashCard = document.createElement("div");
         flashCard.setAttribute("id", "flashCard1");
-        var flashCardText = document.createTextNode("Jab");
+        var flashCardText = document.createElement('p');
+        flashCardText.style.fontSize = "5rem";
+        flashCardText.innerHTML = "Jab";
         flashCard.appendChild(flashCardText);
         document.body.appendChild(flashCard);
     }
@@ -27,7 +35,9 @@ button.addEventListener("click", button => {
     function createCross(){
         var flashCard = document.createElement("div");
         flashCard.setAttribute("id", "flashCard1");
-        var flashCardText = document.createTextNode("Cross");
+        var flashCardText = document.createElement('p');
+        flashCardText.style.fontSize = "3rem";
+        flashCardText.innerHTML = "Cross";
         flashCard.appendChild(flashCardText);
         document.body.appendChild(flashCard);
     }
@@ -35,7 +45,9 @@ button.addEventListener("click", button => {
     function createHook(){
         var flashCard = document.createElement("div");
         flashCard.setAttribute("id", "flashCard1");
-        var flashCardText = document.createTextNode("Hook");
+        var flashCardText = document.createElement('p');
+        flashCardText.style.fontSize = "3rem";
+        flashCardText.innerHTML = "Hook";
         flashCard.appendChild(flashCardText);
         document.body.appendChild(flashCard);
     }
@@ -43,7 +55,9 @@ button.addEventListener("click", button => {
     function createUpperCut(){
         var flashCard = document.createElement("div");
         flashCard.setAttribute("id", "flashCard1");
-        var flashCardText = document.createTextNode("UpperCut");
+        var flashCardText = document.createElement('p');
+        flashCardText.style.fontSize = "3rem";
+        flashCardText.innerHTML = "UpperCut";
         flashCard.appendChild(flashCardText);
         document.body.appendChild(flashCard);
     }
@@ -73,7 +87,7 @@ button.addEventListener("click", button => {
     //     const 
     // }
 
-    setInterval(randomFunc, 1500); //1.5 seconds till next move
+    setInterval(randomFunc, 2000); //1.5 seconds till next move
 
 
     const minute = 1000*60;
@@ -83,8 +97,8 @@ button.addEventListener("click", button => {
     // Date.Now()
     console.log(output);
 
-    
-})
+    })
+}
 
 
 var fightingStyles = {
