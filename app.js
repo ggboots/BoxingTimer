@@ -8,14 +8,33 @@ setTimeout(start, 1500);
 function start(){
     var button = document.createElement("button");
     button.setAttribute("id", "playButton");
-    var buttonContent = document.createTextNode("Reveal Strike");
+    var buttonContent = document.createTextNode("Start");
     button.appendChild(buttonContent);
     document.getElementById("main").appendChild(button);
 
     var timer = document.createElement("div");
     timer.setAttribute("id", "timeSelection");
     document.getElementById("main").appendChild(timer);
-  
+    var timerElement1 = document.createElement("div");
+    var timerElement2 = document.createElement("div");
+    var timerElement3 = document.createElement("div");
+    var timerElement4 = document.createElement("div");
+    var timerElement5 = document.createElement("button");
+    timerElement1.setAttribute("class", "timerElement");
+    timerElement2.setAttribute("class", "timerElement");
+    timerElement3.setAttribute("class", "timerElement");
+    timerElement4.setAttribute("class", "timerElement");
+    timerElement5.setAttribute("id", "timerButtons");
+    timerElement2.innerHTML = ":";
+    document.getElementById("timeSelection").appendChild(timerElement1);
+    document.getElementById("timeSelection").appendChild(timerElement2);
+    document.getElementById("timeSelection").appendChild(timerElement3);
+    document.getElementById("timeSelection").appendChild(timerElement4);
+    document.getElementById("timeSelection").appendChild(timerElement5);
+
+    // .createDocumentFragement() -- Place child element on arbitrary node-like parent
+    // 5 five elements needed, 1 Div for minute, 1 semi colon, 2 Div for seconds, and button selection which changes time
+    // Alternatively, 3 elements, with button up and down from time
 
 
     button.addEventListener("click", button => {
@@ -62,7 +81,7 @@ function start(){
         document.body.appendChild(flashCard);
     }
     function renewDiv(){
-            flashCard.remove();
+            flashCard1.remove();    
     }
 
     function randomFunc(){
@@ -81,11 +100,8 @@ function start(){
                 createUpperCut();
                 break;
         }
+        // setInterval(renewDiv, 1000);
     }
-
-    // function timer(){
-    //     const 
-    // }
 
     setInterval(randomFunc, 2000); //1.5 seconds till next move
 
@@ -93,7 +109,6 @@ function start(){
     const minute = 1000*60;
     const time = new Date();
     let output = Math.round(time.getTime() / minute);
-
     // Date.Now()
     console.log(output);
 
