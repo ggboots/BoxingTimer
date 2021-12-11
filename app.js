@@ -20,17 +20,24 @@ function start(){
     var timerElement3 = document.createElement("div");
     var timerElement4 = document.createElement("div");
     var timerElement5 = document.createElement("button");
+    var timerElement6 = document.createElement("button");
     timerElement1.setAttribute("class", "timerElement");
     timerElement2.setAttribute("class", "timerElement");
     timerElement3.setAttribute("class", "timerElement");
-    timerElement4.setAttribute("class", "timerElement");
-    timerElement5.setAttribute("id", "timerButtons");
+    timerElement4.setAttribute("id", "timerButtons");
+    timerElement5.setAttribute("id", "timerButtonSelectUp");
+    timerElement6.setAttribute("id", "timerButtonSelectDown");
+    timerElement1.innerHTML = "5"; // Minutes unit
     timerElement2.innerHTML = ":";
+    timerElement3.innerHTML = "30"; // Seconds Unit
+    timerElement5.innerHTML = "^";
+    timerElement6.innerHTML = "^";
     document.getElementById("timeSelection").appendChild(timerElement1);
     document.getElementById("timeSelection").appendChild(timerElement2);
     document.getElementById("timeSelection").appendChild(timerElement3);
     document.getElementById("timeSelection").appendChild(timerElement4);
-    document.getElementById("timeSelection").appendChild(timerElement5);
+    document.getElementById("timerButtons").appendChild(timerElement5);
+    document.getElementById("timerButtons").appendChild(timerElement6);
 
     // .createDocumentFragement() -- Place child element on arbitrary node-like parent
     // 5 five elements needed, 1 Div for minute, 1 semi colon, 2 Div for seconds, and button selection which changes time
@@ -113,6 +120,15 @@ function start(){
     console.log(output);
 
     })
+}
+
+function timeCalculation(){
+    var minutes;
+    var seconds;
+    // Break down problem
+    // 1: UI which manipulates data 
+    // 2: 
+    // 3: 
 }
 
 
