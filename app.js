@@ -5,6 +5,10 @@ var appStart = false;
 
 setTimeout(start, 1500);
 
+function test(){
+    console.log("working");
+}
+
 function start(){
     var button = document.createElement("button");
     button.setAttribute("id", "playButton");
@@ -39,6 +43,9 @@ function start(){
     document.getElementById("timerButtons").appendChild(timerElement5);
     document.getElementById("timerButtons").appendChild(timerElement6);
 
+    var DynamicallyAccess = document.getElementById("timerButtonSelectUp");
+    DynamicallyAccess.addEventListener("click", function(){alert("hello");});
+    
     // .createDocumentFragement() -- Place child element on arbitrary node-like parent
     // 5 five elements needed, 1 Div for minute, 1 semi colon, 2 Div for seconds, and button selection which changes time
     // Alternatively, 3 elements, with button up and down from time
@@ -125,11 +132,19 @@ function start(){
 function timeCalculation(){
     var minutes;
     var seconds;
+    const buttonUp = document.getElementById("timerButtonSelectUp");
+    const buttonDown = document.getElementById("timerButtonSelectDown");
+
+    buttonUp.addEventListener("click", test);
+
+
+    
     // Break down problem
     // 1: UI which manipulates data 
     // 2: 
     // 3: 
 }
+
 
 
 var fightingStyles = {
@@ -138,3 +153,6 @@ var fightingStyles = {
     3 : "UpperCut",
     4 : "Cross"
 };
+
+
+document.getElementById("timerButtonSelectUp").addEventListener("click", test);
