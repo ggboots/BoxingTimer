@@ -1,21 +1,13 @@
 var appStart = false;
- //generates random number
-//Math.floor -> returns an integer, not a floating number
-// var main = document.getElementById("main");
-
 setTimeout(start, 1500);
 
-function test(){
-    console.log("working");
-}
-
 function start(){
+    // creates front page element
     var button = document.createElement("button");
     button.setAttribute("id", "playButton");
     var buttonContent = document.createTextNode("Start");
     button.appendChild(buttonContent);
     document.getElementById("main").appendChild(button);
-
     var timer = document.createElement("div");
     timer.setAttribute("id", "timeSelection");
     document.getElementById("main").appendChild(timer);
@@ -31,9 +23,9 @@ function start(){
     timerElement4.setAttribute("id", "timerButtons");
     timerElement5.setAttribute("id", "timerButtonSelectUp");
     timerElement6.setAttribute("id", "timerButtonSelectDown");
-    timerElement1.innerHTML = "5"; // Minutes unit
+    timerElement1.innerHTML = "5"; 
     timerElement2.innerHTML = ":";
-    timerElement3.innerHTML = "30"; // Seconds Unit
+    timerElement3.innerHTML = "30"; 
     timerElement5.innerHTML = "^";
     timerElement6.innerHTML = "^";
     document.getElementById("timeSelection").appendChild(timerElement1);
@@ -42,14 +34,17 @@ function start(){
     document.getElementById("timeSelection").appendChild(timerElement4);
     document.getElementById("timerButtons").appendChild(timerElement5);
     document.getElementById("timerButtons").appendChild(timerElement6);
+   
+    // Dynamically access created element
+    var timerArrowUp = document.getElementById("timerButtonSelectUp");
+    var timerArrowDown = document.getElementById("timerButtonSelectUp");
 
-    var DynamicallyAccess = document.getElementById("timerButtonSelectUp");
-    DynamicallyAccess.addEventListener("click", function(){alert("hello");});
-    
+    timerArrowUp.addEventListener("click", currentTime);
+    timerArrowDown.addEventListener("click", currentTime);
+
     // .createDocumentFragement() -- Place child element on arbitrary node-like parent
     // 5 five elements needed, 1 Div for minute, 1 semi colon, 2 Div for seconds, and button selection which changes time
     // Alternatively, 3 elements, with button up and down from time
-
 
     button.addEventListener("click", button => {
     document.getElementById("playButton").remove();
@@ -119,7 +114,6 @@ function start(){
 
     setInterval(randomFunc, 2000); //1.5 seconds till next move
 
-
     const minute = 1000*60;
     const time = new Date();
     let output = Math.round(time.getTime() / minute);
@@ -132,10 +126,6 @@ function start(){
 function timeCalculation(){
     var minutes;
     var seconds;
-    const buttonUp = document.getElementById("timerButtonSelectUp");
-    const buttonDown = document.getElementById("timerButtonSelectDown");
-
-    buttonUp.addEventListener("click", test);
 
 
     
@@ -145,8 +135,6 @@ function timeCalculation(){
     // 3: 
 }
 
-
-
 var fightingStyles = {
     1 : "Jab",
     2 : "Hook",
@@ -154,5 +142,9 @@ var fightingStyles = {
     4 : "Cross"
 };
 
+function currentTime(){
+    var startTimeMinute = 5;
+    var startTimeSecond = 30;
+    console.log(startTimeMinute + " : " + startTimeSecond);
 
-document.getElementById("timerButtonSelectUp").addEventListener("click", test);
+}
