@@ -1,6 +1,6 @@
 var appStart = false;
-var timeMinutes;
-var timeSeconds;
+var timeMinutes = 5;
+var timeSeconds = 00;
 
 setTimeout(start, 1500);
 
@@ -28,7 +28,7 @@ function start(){
     timerElement6.setAttribute("id", "timerButtonSelectDown");
     timerElement1.innerHTML = "5"; 
     timerElement2.innerHTML = ":";
-    timerElement3.innerHTML = "30"; 
+    timerElement3.innerHTML = "00"; 
     timerElement5.innerHTML = "^";
     timerElement6.innerHTML = "^";
     document.getElementById("timeSelection").appendChild(timerElement1);
@@ -40,10 +40,28 @@ function start(){
    
     // Dynamically access created element
     var timerArrowUp = document.getElementById("timerButtonSelectUp");
-    var timerArrowDown = document.getElementById("timerButtonSelectUp");
+    var timerArrowDown = document.getElementById("timerButtonSelectDown");
 
-    timerArrowUp.addEventListener("click", currentTime);
-    timerArrowDown.addEventListener("click", currentTime);
+    timerArrowUp.addEventListener("click", function(){
+        timeSeconds++;
+        if (timeSeconds == 60){
+            timeMinutes++;
+            timeSeconds = 0;
+        }
+        timerElement3.innerHTML = timeSeconds;
+        timerElement1.innerHTML = timeMinutes;
+    });
+
+    timerArrowDown.addEventListener("click", function(){
+        timeSeconds--;
+        if(timeSeconds == -1){
+            timeMinutes--;
+            timeSeconds = 59;
+        }
+        timerElement3.innerHTML = timeSeconds;
+        timerElement1.innerHTML = timeMinutes;
+    });
+
 
     // .createDocumentFragement() -- Place child element on arbitrary node-like parent
     // 5 five elements needed, 1 Div for minute, 1 semi colon, 2 Div for seconds, and button selection which changes time
@@ -116,43 +134,36 @@ function start(){
 
     setInterval(randomFunc, 2000); //1.5 seconds till next move
 
+    function countDownTimer(){ 
+        var countDownDate = new Date().getTime();
 
-    const minute = 1000*60;
-    const time = new Date();
-    let output = Math.round(time.getTime() / minute);
-    // Date.Now()
-    console.log(output);
-
-    function timeCalculation(){
-        timeMinutes = 5;
-        timeSeconds = 30;
-
-        if (timeMinutes == -1){
-            flashCard1.remove();
-        }
-        // Basic minutes to seconds condition
-        if (timeSeconds < 60){
-            timeMinutes + 1;
-        } else if (timeSeconds > 0){
-            timeMinutes - 1;
-        }
-
-
-
-    
-    
-        
-        // Break down problem
-        // 1: UI which manipulates data 
-        // 2: 
-        // 3: 
+        var x = setInterval(function(){
+            var now = new Date().getTime();
+            var distance 
+        })
+        // Get current time
+        // function which updates time every second
     }
 
+    function timerChange(){
+
+        // Basic minutes to seconds condition
+        if (timeSeconds < 60){
+            timeSeconds = 00;
+            timeMinutes++;
+        } else if (timeSeconds > 0){
+            timeSeconds = 60;
+            timeMinutes--;
+        }
+        return;
+    }
     })
 }
 
 
 
+
+// Test code
 var fightingStyles = {
     1 : "Jab",
     2 : "Hook",
