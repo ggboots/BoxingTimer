@@ -1,4 +1,7 @@
 var appStart = false;
+var timeMinutes;
+var timeSeconds;
+
 setTimeout(start, 1500);
 
 function start(){
@@ -109,10 +112,10 @@ function start(){
                 createUpperCut();
                 break;
         }
-        // setInterval(renewDiv, 1000);
     }
 
     setInterval(randomFunc, 2000); //1.5 seconds till next move
+
 
     const minute = 1000*60;
     const time = new Date();
@@ -120,20 +123,35 @@ function start(){
     // Date.Now()
     console.log(output);
 
-    })
-}
+    function timeCalculation(){
+        timeMinutes = 5;
+        timeSeconds = 30;
 
-function timeCalculation(){
-    var minutes;
-    var seconds;
+        if (timeMinutes == -1){
+            flashCard1.remove();
+        }
+        // Basic minutes to seconds condition
+        if (timeSeconds < 60){
+            timeMinutes + 1;
+        } else if (timeSeconds > 0){
+            timeMinutes - 1;
+        }
+
 
 
     
-    // Break down problem
-    // 1: UI which manipulates data 
-    // 2: 
-    // 3: 
+    
+        
+        // Break down problem
+        // 1: UI which manipulates data 
+        // 2: 
+        // 3: 
+    }
+
+    })
 }
+
+
 
 var fightingStyles = {
     1 : "Jab",
