@@ -1,6 +1,6 @@
 var appStart = false;
 var timeMinutes = 5;
-var timeSeconds = 00;
+var timeSeconds = 30;
 
 setTimeout(start, 1500);
 
@@ -63,6 +63,7 @@ function start(){
     });
 
 
+
     // .createDocumentFragement() -- Place child element on arbitrary node-like parent
     // 5 five elements needed, 1 Div for minute, 1 semi colon, 2 Div for seconds, and button selection which changes time
     // Alternatively, 3 elements, with button up and down from time
@@ -115,6 +116,7 @@ function start(){
     }
 
     function randomFunc(){
+        countDownTimer();
         var random = Math.floor(Math.random() * 4)+1;
         switch(random){
             case 1:
@@ -132,31 +134,30 @@ function start(){
         }
     }
 
-    setInterval(randomFunc, 2000); //1.5 seconds till next move
+    
 
-    function countDownTimer(){ 
-        var countDownDate = new Date().getTime();
+    startingTimeMinutes = timeMinutes;
+    let time = startingTimeMinutes * 60;
+    var timeM;
 
-        var x = setInterval(function(){
-            var now = new Date().getTime();
-            var distance 
-        })
-        // Get current time
-        // function which updates time every second
+    function countDownTimer(){
+
+        timeM = Math.floor(time/60);
+        let seconds = time % 60;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        console.log(`${timeM}:${seconds}`);
+        time--;
     }
 
-    function timerChange(){
-
-        // Basic minutes to seconds condition
-        if (timeSeconds < 60){
-            timeSeconds = 00;
-            timeMinutes++;
-        } else if (timeSeconds > 0){
-            timeSeconds = 60;
-            timeMinutes--;
-        }
-        return;
+    if (timeM > 4){
+        setInterval(randomFunc, 2000); //1.5 seconds till next move
+        setInterval(countDownTimer, 1000);
+    } else if (timeM = 0){
+        clearInterval;
+        start;
     }
+    
+
     })
 }
 
@@ -173,7 +174,6 @@ var fightingStyles = {
 
 function currentTime(){
     var startTimeMinute = 5;
-    var startTimeSecond = 30;
+    var startTimeSecond = 00;
     console.log(startTimeMinute + " : " + startTimeSecond);
-
 }
