@@ -1,7 +1,11 @@
 var timeMinutes = 0;
-var timeSeconds = 05;
+var timeSeconds = 5;
 var main = document.getElementById("main");
 var child = main.getElementsByTagName("div");
+
+// Last task
+// Click on minutes or Seconds to change timer
+// Different modes, 
 
 function start(){
     // creates front page element
@@ -27,7 +31,7 @@ function start(){
     timerElement6.setAttribute("id", "timerButtonSelectDown");
     timerElement1.innerHTML = timeMinutes; 
     timerElement2.innerHTML = ":";
-    timerElement3.innerHTML = timeSeconds; 
+    timerElement3.innerHTML = timeSeconds.toLocaleString(undefined,{minimumIntegerDigits:2}); 
     timerElement5.innerHTML = "^";
     timerElement6.innerHTML = "^";
     document.getElementById("timeSelection").appendChild(timerElement1);
@@ -60,10 +64,6 @@ function start(){
         timerElement3.innerHTML = timeSeconds;
         timerElement1.innerHTML = timeMinutes;
     });
-
-    // .createDocumentFragement() -- Place child element on arbitrary node-like parent
-    // 5 five elements needed, 1 Div for minute, 1 semi colon, 2 Div for seconds, and button selection which changes time
-    // Alternatively, 3 elements, with button up and down from time
 
     button.addEventListener("click", button => {
     document.getElementById("playButton").remove();
@@ -111,13 +111,17 @@ function start(){
         main.appendChild(flashCard);
     }
     
+    function reloadProgram(){
+        location.reload();
+    }
 
     function randomFunc(){
-        
         if (time == 0){
             clearInterval(flashCardPresent);
             clearInterval(countDownTimer);
+            
             console.log("Times up");
+            setTimeout(reloadProgram, 3000);
         } 
         var random = Math.floor(Math.random() * 4)+1;
         switch(random){
@@ -147,8 +151,10 @@ function start(){
 
     }
 
-    var flashCardPresent = setInterval(randomFunc, 2000); //1.5 seconds till next move
+    var flashCardPresent = setInterval(randomFunc, 2000); 
     var countDownTimer = setInterval(countDownTimer, 1000);
+
+
     })
 }
 
