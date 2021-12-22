@@ -1,7 +1,8 @@
-var timeMinutes = 0;
-var timeSeconds = 05;
-var main = document.getElementById("main");
-var child = main.getElementsByTagName("div");
+var appStart = false;
+var timeMinutes = 1;
+var timeSeconds = 30;
+
+setTimeout(start, 1500);
 
 function start(){
     // creates front page element
@@ -71,54 +72,49 @@ function start(){
 
     function createJab(){
         var flashCard = document.createElement("div");
-        flashCard.setAttribute("class", "flashCard1");
+        flashCard.setAttribute("id", "flashCard1");
         var flashCardText = document.createElement('p');
         flashCardText.style.fontSize = "5rem";
         flashCardText.innerHTML = "Jab";
         flashCard.appendChild(flashCardText);
-        main.appendChild(flashCard);
+        document.body.appendChild(flashCard);
     }
 
     function createCross(){
         var flashCard = document.createElement("div");
-        flashCard.setAttribute("class", "flashCard1");
+        flashCard.setAttribute("id", "flashCard1");
         var flashCardText = document.createElement('p');
         flashCardText.style.fontSize = "3rem";
         flashCardText.innerHTML = "Cross";
         flashCard.appendChild(flashCardText);
-        main.appendChild(flashCard);
-
+        document.body.appendChild(flashCard);
     }
 
     function createHook(){
         var flashCard = document.createElement("div");
-        flashCard.setAttribute("class", "flashCard1");
+        flashCard.setAttribute("id", "flashCard1");
         var flashCardText = document.createElement('p');
         flashCardText.style.fontSize = "3rem";
         flashCardText.innerHTML = "Hook";
         flashCard.appendChild(flashCardText);
-        main.appendChild(flashCard);
-
+        document.body.appendChild(flashCard);
     }
 
     function createUpperCut(){
         var flashCard = document.createElement("div");
-        flashCard.setAttribute("class", "flashCard1");
+        flashCard.setAttribute("id", "flashCard1");
         var flashCardText = document.createElement('p');
         flashCardText.style.fontSize = "3rem";
         flashCardText.innerHTML = "UpperCut";
         flashCard.appendChild(flashCardText);
-        main.appendChild(flashCard);
+        document.body.appendChild(flashCard);
     }
-    
+    function renewDiv(){
+            flashCard1.remove();    
+    }
 
     function randomFunc(){
-        
-        if (time == 0){
-            clearInterval(flashCardPresent);
-            clearInterval(countDownTimer);
-            console.log("Times up");
-        } 
+        countDownTimer();
         var random = Math.floor(Math.random() * 4)+1;
         switch(random){
             case 1:
@@ -136,20 +132,42 @@ function start(){
         }
     }
 
-    let time = (timeMinutes * 60) + timeSeconds;
-
+    let time = timeMinutes * 60;
     function countDownTimer(){
         var minutes = Math.floor(time/60);
         let seconds = time % 60;
         seconds = seconds < 10 ? '0' + seconds : seconds;
         console.log(`${minutes}:${seconds}`);
+        console.log(`${time}`);
         time--;
-
     }
 
-    var flashCardPresent = setInterval(randomFunc, 2000); //1.5 seconds till next move
-    var countDownTimer = setInterval(countDownTimer, 1000);
+    if (time = 0){
+        renewDiv;
+        clearInterval;
+        start;
+    } else if (time != 0){
+        setInterval(randomFunc, 2000); //1.5 seconds till next move
+        setInterval(countDownTimer, 1000);
+    }
+    
+
     })
 }
 
-setTimeout(start, 1500);
+
+
+
+// Test code
+var fightingStyles = {
+    1 : "Jab",
+    2 : "Hook",
+    3 : "UpperCut",
+    4 : "Cross"
+};
+
+function currentTime(){
+    var startTimeMinute = 5;
+    var startTimeSecond = 00;
+    console.log(startTimeMinute + " : " + startTimeSecond);
+}
