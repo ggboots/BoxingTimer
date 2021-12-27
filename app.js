@@ -2,7 +2,7 @@ var timeMinutes = 3;
 var timeSeconds = 0;
 var main = document.getElementById("main");
 var child = main.getElementsByTagName("div");
-var switchToRandom = 2;
+var switchStyle = 2;
 var switchUnitOfTime = true;
 var selectDeSelectMinutes = true;
 var selectDeSelectSeconds = true;
@@ -64,6 +64,14 @@ function start(){
     });
     timerElement5.innerHTML = "^";
     timerElement6.innerHTML = "^";
+
+    var modeSwitch = document.createElement("button");
+    modeSwitch.setAttribute("id", "modeSwitch");
+    var boxingIcon = document.createElement("img");
+    boxingIcon.src = '/img/boxingIcon.jpg'; 
+    modeSwitch.appendChild(boxingIcon)
+    document.getElementById("main").appendChild(modeSwitch);
+
     document.getElementById("timeSelection").appendChild(timerElement1);
     document.getElementById("timeSelection").appendChild(timerElement2);
     document.getElementById("timeSelection").appendChild(timerElement3);
@@ -104,6 +112,10 @@ function start(){
             timerElement1.innerHTML = timeMinutes;
         
     });
+
+    modeSwitch.addEventListener("click", function(){
+        //switchMode
+    })
 
     button.addEventListener("click", button => {
     document.getElementById("playButton").remove();

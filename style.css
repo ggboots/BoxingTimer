@@ -90,7 +90,11 @@ body{
     position:fixed;
     height:100px;
     width:100px;
-
+    right:0;
+}
+#modeSwitch > img{
+    height:90px;
+    width:90px;
 }
 
 .timerElement{
