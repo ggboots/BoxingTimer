@@ -89,7 +89,7 @@ body{
 #modeSwitch{
     position:fixed;
     height:100px;
-    width:100px;
+    width:140px;
     right:0;
 }
 #modeSwitch > img{

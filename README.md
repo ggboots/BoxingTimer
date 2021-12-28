@@ -1,7 +1,12 @@
 # BoxingTimer
 
-Simple WebPage to have screen flashes saying a random move
+Simple WebPage which displays Flashcard of different moves to perform with timer
 
-front page to have a start button, which has a 10 seconds start time with loading screen
-Then at random, will choose from 4 different moves and select one to display for 5 seconds
-do this for 3 minutes, after so app will stop and transition to front page
+ - Option to switch modes (Random, Jab + Jab + Random)
+ - 3 seconds countdown timers before starting
+ - Timer which allows you to increment Minutes or seconds when clicked on
+ - Automatically Resets App once time is finished
+
+ 
+
+

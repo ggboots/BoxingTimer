@@ -3,16 +3,14 @@ var timeSeconds = 0;
 var main = document.getElementById("main");
 var child = main.getElementsByTagName("div");
 var switchStyle = 1;
+var switchToRandom = 1;
 var switchUnitOfTime = true;
 var selectDeSelectMinutes = true;
 var selectDeSelectSeconds = true;
+var timesUp1;
+var timesUp2;
 
-// Last task
-// Click on minutes or Seconds to change timer
-// Different modes, (Jab+Jab(next move))
-// Countdown timer
-
-// Also how to access array of id's being created to save over use
+// improvements - how to access arrays of ID's being created to stop multiple being created
 
 function start(){
     // creates front page element
@@ -68,7 +66,7 @@ function start(){
     var modeSwitch = document.createElement("button");
     modeSwitch.setAttribute("id", "modeSwitch");
     var boxingIcon = document.createElement("img");
-    boxingIcon.src = '/img/boxingIcon.jpg'; 
+    boxingIcon.src = '/img/boxing.png'; 
     modeSwitch.appendChild(boxingIcon)
     document.getElementById("main").appendChild(modeSwitch);
 
@@ -114,18 +112,21 @@ function start(){
     });
 
     modeSwitch.addEventListener("click", function(){
-        if (switchStyle == 1){
-            modeSwitch.style.background = "red";
-            switchStyle =2;
-        } else if (switchStyle == 2){
-            modeSwitch.style.background = "green";
+        if (switchStyle == 2){
+            modeSwitch.style.background = "";
+            boxingIcon.src = '/img/boxing.png'; 
             switchStyle = 1;
+        } else if (switchStyle == 1){
+            modeSwitch.style.background = "green";
+            boxingIcon.src = '/img/jabPose.png'; 
+            switchStyle = 2;
         }
     })
 
     button.addEventListener("click", button => {
     document.getElementById("playButton").remove();
     document.getElementById("timeSelection").remove();
+    document.getElementById("modeSwitch").remove();
 
     function createJab(){
         var flashCard = document.createElement("div");
@@ -175,8 +176,8 @@ function start(){
 
     function randomFunc(){
         if (time == 0){
-            clearInterval(flashCardPresent);
-            clearInterval(countDownTimer);
+            clearInterval(timesUp1);
+            clearInterval(timesUp2);
             
             console.log("Times up");
             setTimeout(reloadProgram, 3000);
@@ -198,10 +199,10 @@ function start(){
         }
     }
 
-    function jabJabrandomFunc(){
+    function jabJabRandomFunc(){
         if (time == 0){
-            clearInterval(flashCardPresent);
-            clearInterval(countDownTimer);
+            clearInterval(timesUp1);
+            clearInterval(timesUp2);
             
             console.log("Times up");
             setTimeout(reloadProgram, 3000);
@@ -227,20 +228,91 @@ function start(){
         }
     }
 
+    // function startTimer(){
+    //     var loadingScreen = document.createElement("div");
+    //     loadingScreen.setAttribute("id", "loadingImage");
+    //     var loadingImage = document.createElement("img");
+    //     loadingImage.src = "img/boxingIcon.png";
+    //     loadingScreen.appendChild(loadingImage);
+    //     document.getElementById("main").appendChild(loadingScreen);
+    // }
+
     let time = (timeMinutes * 60) + timeSeconds;
 
-    function countDownTimer(){
+    var downTimer = function countDownTimer(){
         var minutes = Math.floor(time/60);
         let seconds = time % 60;
         seconds = seconds < 10 ? '0' + seconds : seconds;
         console.log(`${minutes}:${seconds}`);
         time--;
-
     }
 
-    var flashCardPresent = setInterval(randomFunc, 2000); 
+    function countInTimer(){
+        setTimeout(firstNumber,0001);
+        setTimeout(secondNumber,1000);
+        setTimeout(thirdNumber,2000);
+
+        function firstNumber(){
+            var number1 = document.createElement("div");
+            number1.setAttribute("id", "firstNumber");
+            var firstNumberText = document.createElement('p');
+            firstNumberText.style.fontSize = "5rem";
+            firstNumberText.style.color = "#fff";
+            firstNumberText.style.display = "flex";
+            firstNumberText.style.alignItems = "center";
+            firstNumberText.style.justifyContent = "center";
+            firstNumberText.innerHTML = "1";
+            number1.appendChild(firstNumberText);
+            main.appendChild(number1);
+        }
+        function secondNumber(){
+            document.getElementById("firstNumber").remove();
+            var secondNumber = document.createElement("div");
+            secondNumber.setAttribute("id", "secondNumber");
+            var secondNumberText = document.createElement('p');
+            secondNumberText.style.fontSize = "7rem";
+            secondNumberText.style.color = "#fff";
+            secondNumberText.style.display = "flex";
+            secondNumberText.style.alignItems = "center";
+            secondNumberText.style.justifyContent = "center";
+            secondNumberText.innerHTML = "2";
+            secondNumber.appendChild(secondNumberText);
+            main.appendChild(secondNumber);
+        }
+        function thirdNumber(){
+            document.getElementById("secondNumber").remove();
+            var thirdNumber = document.createElement("div");
+            thirdNumber.setAttribute("id", "thirdNumber");
+            var thirdNumberText = document.createElement('p');
+            thirdNumberText.style.fontSize = "10rem";
+            thirdNumberText.style.color = "#fff";
+            thirdNumberText.style.display = "flex";
+            thirdNumberText.style.alignItems = "center";
+            thirdNumberText.style.justifyContent = "center";
+            thirdNumberText.innerHTML = "3";
+            thirdNumber.appendChild(thirdNumberText);
+            main.appendChild(thirdNumber);
+        }
+    }
+
+    setTimeout(countInTimer, 0000);
+    
+    function mainApp(){
+        document.getElementById("thirdNumber").remove();
+        if(switchStyle == 1){
+            timesUp1 = setInterval(randomFunc, 1500);
+            timesUp2 = setInterval(downTimer, 1000);
+        }   else if (switchStyle == 2){
+            timesUp1 = setInterval(jabJabRandomFunc, 1500);
+            timesUp2 = setInterval(downTimer, 1000);
+        }
+    }
+
+   
+    setTimeout(mainApp,3000);
+    // var flashCardPresent = setInterval(randomFunc, 2000); 
     // var flashCardJabJab = setInterval(jabJabRandomFunc, 2000);
-    var countDownTimer = setInterval(countDownTimer, 1000);
+    // var countDownTimer = setInterval(countDownTimer, 1000);
 
 
     })
