@@ -2,7 +2,7 @@ var timeMinutes = 3;
 var timeSeconds = 0;
 var main = document.getElementById("main");
 var child = main.getElementsByTagName("div");
-var switchStyle = 2;
+var switchStyle = 1;
 var switchUnitOfTime = true;
 var selectDeSelectMinutes = true;
 var selectDeSelectSeconds = true;
@@ -114,7 +114,13 @@ function start(){
     });
 
     modeSwitch.addEventListener("click", function(){
-        //switchMode
+        if (switchStyle == 1){
+            modeSwitch.style.background = "red";
+            switchStyle =2;
+        } else if (switchStyle == 2){
+            modeSwitch.style.background = "green";
+            switchStyle = 1;
+        }
     })
 
     button.addEventListener("click", button => {
